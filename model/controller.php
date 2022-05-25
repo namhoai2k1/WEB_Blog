@@ -8,6 +8,13 @@
             $row = mysqli_num_rows($query);
             return $row;
         }
+        public function getData($id) {
+            global $conn;
+            $sql = "SELECT * FROM account WHERE id = '$id'";
+            $query = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($query);
+            return $row;
+        }
         public function signUp($user_name, $password,$email,) {
             global $conn;
             $sql = "INSERT INTO `account`(`user_name`, `email`, `password`, `role`) VALUES ('$user_name','$email','$password','user')";
@@ -150,6 +157,13 @@
             $sql = "INSERT INTO contact (name, email, subject, message)
             VALUES ('$name', '$email', '$subject', '$message')";
             echo $sql;
+            $query = mysqli_query($conn, $sql);
+            return $query;
+        }
+        // update password
+        public function updatePassword($id, $password) {
+            global $conn;
+            $sql = "UPDATE account SET password = '$password' WHERE id = $id";
             $query = mysqli_query($conn, $sql);
             return $query;
         }

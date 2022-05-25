@@ -18,7 +18,7 @@ if (isset($_POST['signup'])) {
     else 
     {
         try {
-            $get_data->signUp($_POST['username_2'], ($_POST['email_2']), $_POST['password_2']);
+            $get_data->signUp($_POST['username_2'], $_POST['password_2'], ($_POST['email_2']));
             echo "<script>alert('Register success')</script>";
             // them vao profile
             $get_data->addProfile($_POST['username_2']);

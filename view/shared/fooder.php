@@ -1,4 +1,4 @@
-<div id="footer">
+	<div id="footer">
 		<div>
 			<div class="first">
 				<h3><a href="index.html">Ecothunder</a></h3>
@@ -29,5 +29,47 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal" id="modalBlog">
+    <div class="modal-dialog" style="max-width: 712px;">
+        <div class="modal-content bg-dark text-white">
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="../model/addBlog.php?id=<?php echo $id; ?>" method="post">
+                <div class="card bg-dark text-white">
+                        <div class="card-header d-flex align-center justify-content-between">
+                            <h4 class="modal-title">Them vao tin cua ban</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="card-body">
+                            <!-- <form method="POST" enctype="multipart/form-data"> -->
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label for="" class="h5">Title</label>
+                                        <input type="text" class="form-control" name="title">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label for="" class="h5">Content</label>
+                                        <textarea
+                                            type="text"
+                                            class="form-control"
+                                            name="content"
+                                            rows="5"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary" name="addBlog">Update</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -9,10 +9,13 @@
 			$blogs = $get_data->getAllBlogs();
 			foreach ($blogs as $key => $blog) {
 				if($blog['status'] == 1) {
-		?>
-		<h1><a href="index.html"><?php echo $blog['title']; ?></a></h1>
-		<p><?php echo $blog['description']; ?></p>
-		<?php
+					?>
+					<div class="blog">
+						<h1><a href="index.html"><?php echo $blog['title']; ?></a></h1>
+						<p><?php echo $blog['description']; ?></p>
+						<p><?php echo $blog['date']; ?></p>
+					</div>
+					<?php
 				}
 			}
 		?>

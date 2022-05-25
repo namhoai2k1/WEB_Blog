@@ -74,7 +74,10 @@
                 <div class="ms-5 ps-5 col">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalPass">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            <span class="ml-2">thay đổi mật khẩu</span>
+                        </button>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -226,8 +229,45 @@
         </div>
     </div>
 </div>
+<div class="modal" id="modalPass">
+    <div class="modal-dialog" style="max-width: 712px;">
+        <div class="modal-content bg-dark text-white">
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="../model/changepass.php?id=<?php echo $id; ?>" method="post">
+                <div class="card bg-dark text-white">
+                        <div class="card-header d-flex align-center justify-content-between">
+                            <h4 class="modal-title">Thay đổi mật khẩu</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="card-body">
+                            <!-- <form method="POST" enctype="multipart/form-data"> -->
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label for="" class="h5">Nhập mật khẩu cũ</label>
+                                        <input type="text" class="form-control" name="pass">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label for="" class="h5">Nhập mật khẩu mới</label>
+                                        <input type="text" class="form-control" name="newpass">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary" name="changepass">Thay đổi</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal" id="modalProfile">
-
     <div class="modal-dialog" style="max-width: 712px;">
         <div class="modal-content bg-dark text-white">
             <!-- Modal body -->

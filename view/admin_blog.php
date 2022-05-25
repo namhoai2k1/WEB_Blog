@@ -48,7 +48,7 @@
                     <a href="./edit_blog.php?id=<?php echo $value['id']; ?>" class="btn btn-primary">
                         Edit
                     </a>
-                    <a href="./delete_blog.php?id=<?php echo $value['id']; ?>" class="btn btn-danger">
+                    <a href="../model/delete_blog_user.php?id=<?php echo $value['id']; ?>" class="btn btn-danger">
                         Delete
                     </a>
                     <!-- them nut duyet -->
