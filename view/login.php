@@ -6,22 +6,22 @@
 <?php 
 // kiem tra dau vao
 if (isset($_POST['signup'])) {
-	$getName = $get_data->getNameUser($_POST['username']);
-    $name = $getName['user_name'];
-    if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']))
+	$getName = $get_data->getNameUser($_POST['username_2']);
+    $name = $getName['user_name_2'];
+    if(empty($_POST['username_2']) || empty($_POST['password_2']) || empty($_POST['email_2']))
     {
         echo "<script>alert('Please fill all the fields')</script>";
     }
-    elseif (trim($_POST['username'], " ") == $name['name']) {
+    elseif (trim($_POST['username_2'], " ") == $name['name']) {
         echo "<script>alert('Username already exists')</script>";
     }
     else 
     {
         try {
-            $get_data->signUp($_POST['username'], ($_POST['email']), $_POST['password']);
+            $get_data->signUp($_POST['username_2'], ($_POST['email_2']), $_POST['password_2']);
             echo "<script>alert('Register success')</script>";
             // them vao profile
-            $get_data->addProfile($_POST['username']);
+            $get_data->addProfile($_POST['username_2']);
         } catch (Exception $e) {
             echo "<script>alert('Register fail')</script>";
         } 
@@ -37,11 +37,15 @@ if (isset($_POST['login'])) {
     else 
     {
         try {
-            $get_data->login($_POST['username'], $_POST['password']);
-            // chuyen hung ve trang index 
-            header('location: index.php');
-            // tao bien section name="$_POST['username']"
-            $_SESSION['name'] = $_POST['username'];
+            $login =  $get_data->login($_POST['username'], $_POST['password']);
+            if($login) {
+                // chuyen hung ve trang index 
+                header('location: index.php');
+                // tao bien section name="$_POST['username']"
+                $_SESSION['name'] = $_POST['username'];
+            } else {
+                echo "<script>alert('Username or password is incorrect')</script>";
+            }
         } catch (Exception $e) {
             echo "<script>alert('Register fail')</script>";
         } 
@@ -136,7 +140,7 @@ if (isset($_POST['login'])) {
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        name="username"
+                                        name="username_2"
                                         class="forms_field-input"
                                         required
                                     />
@@ -145,7 +149,7 @@ if (isset($_POST['login'])) {
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        name="email"
+                                        name="email_2"
                                         class="forms_field-input"
                                         required
                                     />
@@ -153,7 +157,7 @@ if (isset($_POST['login'])) {
                                 <div class="forms_field">
                                     <input
                                         type="password"
-                                        name="password"
+                                        name="password_2"
                                         placeholder="Password"
                                         class="forms_field-input"
                                         required

@@ -45,7 +45,7 @@
 								<a href="account.php?id=<?php echo $value['id']; ?>"><?php echo $_SESSION['name']?>(A)</a>
 							</li>
 							<li>
-								<a href="login.php">Logout</a>
+								<a href="../model/logout.php">Logout</a>
 							</li>
 						<?php
 							} elseif (isset($_SESSION['name']) && $role == 'user') {
@@ -63,7 +63,7 @@
 								<a href="account.php?id=<?php echo $value['id']; ?>"><?php echo $_SESSION['name']?>(USER)</a>
 							</li>
 							<li>
-								<a href="login.php">Logout</a>
+								<a href="../model/logout.php">Logout</a>
 							</li>
 						<?php
 							} else {
